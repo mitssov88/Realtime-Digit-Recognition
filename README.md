@@ -1,15 +1,7 @@
 # Handwritten Digit Recognition
-I applied recent Deep Learning research in reducing neuron co-adaption &amp; the overfitting that results in sequential models to improve the accuracy of real-time handwritten digit recognition
+I split the data from the MNIST data set into a training set of 50,000 inputs, and test set of 10,000 inputs. I figured that 3 Convolutional layers would be enough to extract key features from digits, and used ReLU activations, followed by 2D Max Pooling and finally 3 Dense layers and a Softmax activation to extract the prediction. 
+This gave a 98.8% accuracy on the test set, but it didn’t quite perform as well on my own writing, which pointed to overfitting. I decided to add Dropout layers after both the Convolution layers and the Dense layers and the improvement was noticeable next time I tried to draw my own digits using OpenCV:
 
-Accuracy 98.8%
-
-## Overview of implementing findings from research papers (cited below)
-Initially, I wanted to implement a Deep Learning CNN for digit recognition (data from MNIST) that would achieve the highest possible accuracy on 10,000 tests using 50,000 training inputs. I trained a model with 3 Convolution layers, each with ReLU activation and Max Pooling, and finally 3 fully-connected Dense layers. This gave me a 98.8% accuracy on the testing data. Great. 
-
-**But I noticed a problem**. The model didn’t perform nearly as well on my own real-time handwritten inputs which I integrated using OpenCV.
-For inaccurate predictions, the digit predicted wasn’t even similar to the correct digit, and a 98.8% accuracy on test data but only approx. 70% accuracy on my real-time handwritten digits pointed to overfitting in the model. 
-I did some research on co-adaptation of neurons and the overfitting that it yields, and decided to implement improvements discussed in research papers which involved adding Dropout layers after non-linear activation layers, specifically with a low rate after Conv. layers and a higher rate after Dense, fully- connected layers.
-The improvement was substantial. Accuracy on my handwritten digits went from about 70% to almost 100%.
 
 ## [Watch the demo](https://drive.google.com/file/d/1On99POBdZ6D1kQfd-ocvgR5ROgtYqOMz/view?usp=sharing)
 
